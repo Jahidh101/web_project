@@ -1,0 +1,20 @@
+*admin*
+_login  ^
+_add police  ^
+_view, update, delete request of police ^
+_approve, decline request of police ^
+_search case based on (caseNo, criminalId, victimName, crimCategory, year) ^
+_view details of any case  ^
+_can add extar police to a case   ^
+_view police list, details   ^
+_delete, update police and police rank   ^
+
+*police*
+_login   ^
+_view profile   ^
+_update profile   ^
+_create new case   ^
+_update/delete case   ^
+_view any case (except restricted ones) ^
+_update, delete any case (permission required)
+_can add extar police to a case ^
