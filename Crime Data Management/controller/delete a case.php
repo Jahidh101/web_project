@@ -13,6 +13,7 @@ $conn = '';
     $conn = deleteAVictim($ACaseInfo['Victim_ID']);
     $conn = deleteASuspect($ACaseInfo['Suspect_ID']);
     $conn = deleteACriminal($ACaseInfo['Criminal_ID']);
+    $conn = deleteACaseAccess($ACaseInfo['CaseNumber']);
     if(deleteACase($ACaseInfo['CaseNumber'])) {
     	$message = 'Successfully deleted!!';
     }

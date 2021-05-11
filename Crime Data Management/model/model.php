@@ -752,6 +752,32 @@ function deleteACase($caseNumber){
     return true;
 }
 
+function deleteACaseAccess($caseNumber){
+    $conn = db_conn();
+    $selectQuery = "DELETE FROM case_access WHERE CaseNumber = '$caseNumber'";
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    
+    $conn = null;
+    return true;
+}
+
+function deleteACasePolice($policeID){
+    $conn = db_conn();
+    $selectQuery = "DELETE FROM case_access WHERE Police_ID = '$policeID'";
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    
+    $conn = null;
+    return true;
+}
+
 function deleteAVictim($vId){
     $conn = db_conn();
     $selectQuery = "DELETE FROM victim WHERE Victim_ID = '$vId'";
