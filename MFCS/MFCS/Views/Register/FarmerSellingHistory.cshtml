@@ -1,10 +1,10 @@
-﻿@model IEnumerable<MFCS.Models.User>
+﻿@model IEnumerable<MFCS.Models.Buy_Products>
 
 @{
-    ViewBag.Title = "FarmerList";
+    ViewBag.Title = "FarmerSellingHistory";
 }
 
-<h2>FarmerList</h2>
+<h2>FarmerSellingHistory</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -18,18 +18,17 @@
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            @Html.DisplayNameFor(model => model.Quantity)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NID)
+            @Html.DisplayNameFor(model => model.Price)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Password)
+            @Html.DisplayNameFor(model => model.User_Id)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Address)
+            @Html.DisplayNameFor(model => model.Date)
         </th>
-        
         <th></th>
     </tr>
 
@@ -42,20 +41,20 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Email)
+            @Html.DisplayFor(modelItem => item.Quantity)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.NID)
+            @Html.DisplayFor(modelItem => item.Price)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Password)
+            @Html.DisplayFor(modelItem => item.User_Id)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Address)
+            @Html.DisplayFor(modelItem => item.Date)
         </td>
-        
         <td>
-            @Html.ActionLink("Edit", "EditFarmerProfile", new { id=item.Id }) |
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>

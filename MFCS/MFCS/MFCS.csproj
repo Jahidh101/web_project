@@ -133,10 +133,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Buy_Products.cs">
-      <DependentUpon>MFCS.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Complain.cs">
-      <DependentUpon>MFCS.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MFCS.Context.cs">
       <AutoGen>True</AutoGen>
@@ -153,20 +153,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MFCS.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\Product.cs">
-      <DependentUpon>MFCS.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Product_Type.cs">
-      <DependentUpon>MFCS.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Sell_Products.cs">
-      <DependentUpon>MFCS.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Transaction.cs">
-      <DependentUpon>MFCS.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>MFCS.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -189,6 +204,16 @@
       <DependentUpon>MFCS.edmx</DependentUpon>
       <LastGenOutput>MFCS.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\MFCS.edmx">
@@ -197,6 +222,13 @@
     </EntityDeploy>
     <Content Include="Models\MFCS.edmx.diagram">
       <DependentUpon>MFCS.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -225,6 +257,13 @@
     <Content Include="Views\Register\BuyingHistory.cshtml" />
     <Content Include="Views\Register\SellingHistory.cshtml" />
     <Content Include="Views\Register\AddProduct.cshtml" />
+    <Content Include="Views\Register\AddComplain.cshtml" />
+    <Content Include="Views\Register\FarmerSellingHistory.cshtml" />
+    <Content Include="Views\Register\EditProfile.cshtml" />
+    <Content Include="Views\Register\ViewProfile.cshtml" />
+    <Content Include="Views\Register\AddFarmerBuyer.cshtml" />
+    <Content Include="Views\Register\EditFarmerProfile.cshtml" />
+    <Content Include="Views\Register\EditBuyerProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

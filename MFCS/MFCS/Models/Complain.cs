@@ -18,7 +18,5 @@ namespace MFCS.Models
         public int User_Id { get; set; }
         public string Title { get; set; }
         public string Message { get; set; }
-    
-        public virtual User User { get; set; }
     }
 }
