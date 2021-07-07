@@ -70,9 +70,11 @@ namespace MFCS.Controllers
         {
             var h = context.Users.FirstOrDefault(e => e.Id == u.Id);
             context.Entry(h).CurrentValues.SetValues(u);
+            
             context.SaveChanges();
             return RedirectToAction("BuyerList");
         }
+        //newwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
         public ActionResult AddProduct()
         {
             return View();
@@ -80,15 +82,77 @@ namespace MFCS.Controllers
         [HttpPost]
         public ActionResult AddProduct(Buy_Products p)
         {
-            Product pr = new Product();
-            var types = context.Product_Type.ToList();
-            var t = from e in types
-                    where e.Title == p.Type
-                    select e.Id;
+            var quantity = from e in context.Products
+                      where e.Name == p.Name
+                      select e.Stored;
+            if (!quantity.Any())
+            {
+                Product pr = new Product();
+                var catagory = from e in context.Product_Type
+                         where e.Title == p.Type
+                         select e.Id;
+                var catagoryId = catagory.First();
+                pr.Category_Id = catagoryId;
+                pr.Name = p.Name;
+                pr.Stored = p.Quantity;
+                context.Products.Add(pr);
+            }
+            else
+            {
+                var p1 = from e in context.Products
+                         where e.Name == p.Name
+                         select e;
+                var quantity1 = quantity.First();
+                var total = quantity1 + p.Quantity;
+                var productRow = p1.FirstOrDefault();
+                context.Products.Attach(productRow);
+                productRow.Stored = total;
+            }          
+
             context.Buy_Products.Add(p);
             context.SaveChanges();
 
             return RedirectToAction("BuyingHistory");
+        }
+        public ActionResult SellProduct()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult SellProduct(Sell_Products p)
+        {
+            var quantity = from e in context.Products
+                           where e.Name == p.Name
+                           select e.Stored;
+            if (!quantity.Any())
+            {
+                return RedirectToAction("ProductList");
+            }
+            else
+            {
+                var p1 = from e in context.Products
+                         where e.Name == p.Name
+                         select e;
+                var quantity1 = quantity.First();
+
+                if (p.Quantity > quantity1)
+                    return RedirectToAction("ProductList");
+
+                var totalRemaining = quantity1 - p.Quantity;
+                var productRow = p1.FirstOrDefault();
+                context.Products.Attach(productRow);
+                productRow.Stored = totalRemaining;
+            }
+
+            context.Sell_Products.Add(p);
+            context.SaveChanges();
+
+            return RedirectToAction("SellingHistory");
+        }
+        public ActionResult ProductList()
+        {
+            var p = context.Products.ToList();
+            return View(p);
         }
         public ActionResult BuyingHistory()
         {

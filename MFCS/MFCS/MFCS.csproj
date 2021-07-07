@@ -264,6 +264,8 @@
     <Content Include="Views\Register\AddFarmerBuyer.cshtml" />
     <Content Include="Views\Register\EditFarmerProfile.cshtml" />
     <Content Include="Views\Register\EditBuyerProfile.cshtml" />
+    <Content Include="Views\Register\SellProduct.cshtml" />
+    <Content Include="Views\Register\ProductList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
